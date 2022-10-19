@@ -1,0 +1,11 @@
+.blogCell {
+    margin: auto;
+    max-width: 800px;
+    min-height: 234px;
+}
+
+.blogCellContent {
+}
+
+.blogCell:hover .blogCellContent {
+}
