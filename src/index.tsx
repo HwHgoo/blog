@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import BlogCell from './blog/cell';
@@ -9,8 +10,30 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <BlogCell></BlogCell>
+    <Grid container
+      sx={{
+        marginBottom: 8,
+        alignContent: 'space-around',
+        maxWidth: 1000,
+      }}
+      spacing={{ lg: 4, md: 3 }}
+      columns={{ lg: 12, md: 8, sm: 4, xs: 4 }}
+      margin={{ lg: 'auto', md: 'auto', sm: 'auto', xs: 'auto' }}
+      marginLeft={{ xs: 5 }}
+      marginRight={{ xs: 5 }}
+    >
+      <Grid item lg={6} md={4} sm={4} xs={4}>
+        <BlogCell></BlogCell>
+      </Grid>
+
+      <Grid item lg={6} md={4} sm={4} xs={4}>
+        <BlogCell></BlogCell>
+      </Grid>
+
+      <Grid item lg={6} md={4} sm={4} xs={4}>
+        <BlogCell></BlogCell>
+      </Grid>
+    </Grid>
   </React.StrictMode>
 );
 
