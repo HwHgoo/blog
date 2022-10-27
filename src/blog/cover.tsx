@@ -1,17 +1,19 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useEffect, useState } from "react";
-import './cell.css'
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import './cover.css'
 
-interface CellState {
+interface CoverState {
     raised: boolean
     shadow: number
     hovered?: boolean
 }
 
-interface CellStyle {
-    root: string
-    hovered: string
+interface CoverProp {
+    image: string
+    title: string
+    overview: string
 }
 
 const useStyle = makeStyles({
@@ -30,9 +32,9 @@ const useStyle = makeStyles({
 });
 
 
-function BlogCell(props: any) {
+function BlogCover(props: CoverProp) {
     const classes = useStyle();
-    const [state, setState] = useState<CellState>({ raised: false, shadow: 1 });
+    const [state, setState] = useState<CoverState>({ raised: false, shadow: 1 });
     useEffect(() => {
         console.log('raised changed: ', state.raised);
         const timer = state.raised ? setTimeout(() => {
@@ -51,7 +53,6 @@ function BlogCell(props: any) {
 
 
     const onMouseOver = () => {
-        console.log("mouse over")
         setState({
             raised: true,
             shadow: 3
@@ -59,7 +60,7 @@ function BlogCell(props: any) {
     };
 
     const onMouseOut = () => {
-        console.log("mouse out")
+        console.log('move out')
         setState({
             raised: false,
             shadow: 1,
@@ -75,29 +76,22 @@ function BlogCell(props: any) {
             onMouseOver={onMouseOver}
             onMouseOut={onMouseOut}
             raised={state?.hovered}
+            onClick={() => { console.log('on click') }}
         >
             <CardContent className="blogCellContent">
-                <Typography color="text.primary" >
-                    Title
-                </Typography>
-                <Typography color="text.secondary">
-                    sadfsa sdf asdf asd asdfasdf sadfasdf
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                    asdfas adf wqo lkl sadf dvno sadof q
-                </Typography>
+                <CardMedia
+                    component='img'
+                    // height='400'
+                    image="https://pic1.zhimg.com/v2-07c8ca78fd60aea1d682330839e355ab_720w.jpg?source=172ae18b"
+                />
+                <ReactMarkdown>
+                    #### Title
+                </ReactMarkdown>
+                <ReactMarkdown>
+                    ##### Overview
+                </ReactMarkdown>
             </CardContent>
         </Card>
     )
 }
-export default BlogCell;
+export default {BlogCover};

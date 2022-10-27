@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import BlogCell from './blog/cell';
+import BlogCover from './blog/cover';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -16,22 +16,26 @@ root.render(
         alignContent: 'space-around',
         maxWidth: 1000,
       }}
-      spacing={{ lg: 4, md: 3 }}
+      spacing={{ lg: 12, md: 4 }}
       columns={{ lg: 12, md: 8, sm: 4, xs: 4 }}
       margin={{ lg: 'auto', md: 'auto', sm: 'auto', xs: 'auto' }}
-      marginLeft={{ xs: 5 }}
-      marginRight={{ xs: 5 }}
+      // marginLeft={{ xs: 5 }}
+      // marginRight={{ xs: 5 }}
+      paddingBottom={{ xs: 12 }}
     >
       <Grid item lg={6} md={4} sm={4} xs={4}>
-        <BlogCell></BlogCell>
+        <BlogCover
+        ></BlogCover>
       </Grid>
 
       <Grid item lg={6} md={4} sm={4} xs={4}>
-        <BlogCell></BlogCell>
+        <BlogCover
+        ></BlogCover>
       </Grid>
 
       <Grid item lg={6} md={4} sm={4} xs={4}>
-        <BlogCell></BlogCell>
+        <BlogCover
+        ></BlogCover>
       </Grid>
     </Grid>
   </React.StrictMode>
